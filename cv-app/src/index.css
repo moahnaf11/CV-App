@@ -41,6 +41,11 @@ img {
   display: block;
   width: 30px;
   height: 30px;
+  transition: transform 0.5s;
+}
+
+img.rotate {
+  transform: rotate(180deg);
 }
 
 a {
@@ -80,19 +85,15 @@ div.dialog {
   transition-timing-function: ease-in;
 }
 
-
-@starting-style {
-  opacity: 0;
-}
-
 div.dialog.open {
   opacity: 1;
   display: block;
 }
 
-div.dialog.closed {
-  opacity: 0;
-  display: none;
+@starting-style {
+  div.dialog.open {
+    opacity: 0;
+  }
 }
 
 
@@ -115,6 +116,36 @@ input {
   min-height: 30px;
 }
 
+div.check {
+  display: flex;
+  align-items: center;
+}
+
+div.check > input {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+}
+
+button {
+  display: inline-block;
+  padding: 8px;
+  border-radius: 15px;
+  border: none;
+  width: 200px;
+  align-self: center;
+  font-family: 'intro_rust_gbase_2_line', sans-serif;
+  color: white
+}
+
+button[type="submit"] {
+  background-color: #65a30d;
+}
+
+button[type="reset"] {
+  background-color: #6b7280;
+}
+
 section.cv {
   padding: 10px;
 }
@@ -132,11 +163,21 @@ h2 {
     flex-direction: column;
   }
 
+  header > h1 {
+    font-size: 1.5rem;
+  }
+
   h2 {
     font-size: 1rem;
     flex-direction: column;
     align-items: center;
   }
   
+}
+
+@media (hover: hover) {
+  button:hover {
+    box-shadow: 0px 0px 5px 3px #0f172a;
+  }
 }
 

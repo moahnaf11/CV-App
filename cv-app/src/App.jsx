@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import './App.css'
 import { General } from './General'
-import { Formdiv } from './Formdiv '
+import { Formdiv } from './Formdiv'
+import { Button } from './Button'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -79,6 +80,37 @@ function App() {
         >
         </Formdiv>
 
+        <Formdiv
+          forinput="enddate"
+          text="End Date"
+          type="date"
+          inputid="enddate"
+          placeholder=""
+        >
+        </Formdiv>
+
+        <Formdiv
+          forinput="current"
+          text="Currently a student?"
+          type="checkbox"
+          inputid="current"
+          placeholder=""
+          classid={"check"}
+        >
+        </Formdiv>
+
+        <Button
+          type="submit"
+          text="Save"
+        >
+        </Button>
+
+        <Button
+          type="reset"
+          text="Reset"
+        >
+        </Button>
+
 
 
       </General>
@@ -139,6 +171,28 @@ function App() {
           placeholder=""
         >
         </Formdiv>
+
+        <Formdiv
+          forinput="current"
+          text="Currently an employee?"
+          type="checkbox"
+          inputid="current"
+          placeholder=""
+          classid={"check"}
+        >
+        </Formdiv>
+
+        <Button
+          type="submit"
+          text="Save"
+        >
+        </Button>
+
+        <Button
+          type="reset"
+          text="Reset"
+        >
+        </Button>
         
 
       </General>
