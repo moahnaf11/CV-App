@@ -64,24 +64,55 @@ section.forms {
   padding: 10px;
   display: grid;
   grid-template-columns: 1fr;
-  grid-auto-rows: auto;
+  grid-auto-rows: min-content;
+  row-gap: 20px;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+div.dialog {
+  display: none;
+  transition: opacity 0.5s, display 0.5s;
+  transition-timing-function: ease-in;
+}
+
+
+@starting-style {
+  opacity: 0;
+}
+
+div.dialog.open {
+  opacity: 1;
+  display: block;
+}
+
+div.dialog.closed {
+  opacity: 0;
+  display: none;
+}
 
 
 label {
   display: inline-block;
-  max-width: 60px;
+  width: 100%;
+  color: #fcd34d;
+  font-family: "source_sans_proextralight", sans-serif;
+  font-weight: 900;
 }
 
-.generaldiv dialog {
-  max-width: 100%;
-  
-}
+
 
 input {
+  box-sizing: border-box;
   display: inline-block;
-  max-width: 100%;
+  width: 100%;
+  padding: 0 10px;
+  border-radius: 10px;
+  min-height: 30px;
 }
 
 section.cv {
@@ -89,6 +120,7 @@ section.cv {
 }
 
 h2 {
+  font-family: "intro_rust_gbase_2_line", sans-serif;
   color: white;
   display: flex;
   justify-content: space-between;
@@ -98,6 +130,12 @@ h2 {
 @media (max-width: 500px) {
   header {
     flex-direction: column;
+  }
+
+  h2 {
+    font-size: 1rem;
+    flex-direction: column;
+    align-items: center;
   }
   
 }
