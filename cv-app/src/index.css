@@ -26,6 +26,10 @@ body {
   height: 100vh;
 }
 
+#root {
+  height: 100%;
+}
+
 header {
   padding: 20px;
   display: flex;
@@ -136,6 +140,11 @@ button {
   align-self: center;
   font-family: 'intro_rust_gbase_2_line', sans-serif;
   color: white
+}
+
+button[type="button"] {
+  background-color: #f97316;
+  
 }
 
 button[type="submit"] {

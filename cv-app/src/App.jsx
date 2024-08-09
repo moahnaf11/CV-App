@@ -49,6 +49,23 @@ function App() {
         >
         </Formdiv>
 
+        <Button
+          type="submit"
+          text="Save"
+        >
+        </Button>
+
+        <Button
+          type="reset"
+          text="Reset"
+        >
+        </Button>
+
+        <Button
+          text="edit"
+        >
+        </Button>
+
       </General>
       <General
         text= "Education" 
@@ -108,6 +125,11 @@ function App() {
         <Button
           type="reset"
           text="Reset"
+        >
+        </Button>
+
+        <Button
+          text="edit"
         >
         </Button>
 
@@ -191,6 +213,11 @@ function App() {
         <Button
           type="reset"
           text="Reset"
+        >
+        </Button>
+
+        <Button
+          text="edit"
         >
         </Button>
         
