@@ -14,20 +14,31 @@ export function ParentComponent () {
             const isArraySection = formName === 'Education' || formName === 'Experience';
             let updateValues;
             let keyName;
-            if (formName === 'Education' || formName === 'Experience') {
-                // Generate a key based on schoolName or companyName
-                keyName = formName === 'Education' ? value.school : value.company;
-            }
             if (isArraySection) {
-                updateValues = {
-                    ...prevValues,
-                    [formName]: [
-                        ...(prevValues[formName] || []), 
-                    {
-                        ...value,
-                        key: keyName // Add the key as a property of the object
-                    }],
-                };
+                keyName = value.school || value.company;
+                const existingItemIndex = prevValues[formName].findIndex((item) => item.key === keyName )
+
+                if (existingItemIndex > -1) {
+                    updateValues = {
+                        ...prevValues,
+                        [formName]: prevValues[formName].map((item, index) => 
+                            index === existingItemIndex ? { ...value, key: item.key } : item
+                        )
+                    };
+                    
+                }   else {
+                    updateValues = {
+                        ...prevValues,
+                        [formName]: [
+                            ...(prevValues[formName] || []), 
+                        {
+                            ...value,
+                            key: keyName // Add the key as a property of the object
+                        }],
+                    };
+
+
+                }
                 
             }   else {
                 updateValues = {
