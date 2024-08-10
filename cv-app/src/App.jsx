@@ -4,13 +4,19 @@ import { General } from './General'
 import { Formdiv } from './Formdiv'
 import { Button } from './Button'
 
-function App() {
-  const [count, setCount] = useState(0)
+function App({updateFormValues, formValues}) {
+
+  function handleFormSubmit(id, value) {
+    updateFormValues(id, value);
+  }
+  
 
   return (
     <>
       <General
         text="General Info"
+        onFormSubmit={handleFormSubmit}
+        formValues={formValues}
         
       >
         <Formdiv
@@ -61,14 +67,11 @@ function App() {
         >
         </Button>
 
-        <Button
-          text="edit"
-        >
-        </Button>
-
       </General>
       <General
         text= "Education" 
+        onFormSubmit={handleFormSubmit}
+        formValues={formValues}
       >
         <Formdiv
           forinput="school"
@@ -128,17 +131,12 @@ function App() {
         >
         </Button>
 
-        <Button
-          text="edit"
-        >
-        </Button>
-
-
-
       </General>
 
       <General
         text= "Experience"
+        onFormSubmit={handleFormSubmit}
+        formValues={formValues}
       >
         <Formdiv
           forinput="company"
@@ -164,15 +162,6 @@ function App() {
           type="text"
           inputid="responsibility"
           placeholder="Job Responsibility"
-        >
-        </Formdiv>
-
-        <Formdiv
-          forinput="company"
-          text="Company Name"
-          type="text"
-          inputid="company"
-          placeholder="Company Name"
         >
         </Formdiv>
 
@@ -215,12 +204,6 @@ function App() {
           text="Reset"
         >
         </Button>
-
-        <Button
-          text="edit"
-        >
-        </Button>
-        
 
       </General>
     </>

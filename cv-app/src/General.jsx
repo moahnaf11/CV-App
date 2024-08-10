@@ -1,16 +1,16 @@
 import { Children, useState } from 'react'
 import downIcon from "./down.svg"
 import React from 'react';
-
-export function General ({text, children}) {
+import { Button } from './Button';
+export function General ({text, children, onFormSubmit, formValues}) {
     const [dialogOpen, setDialogOpen] = useState(false);
     const [checked, setChecked] = useState(false);
-    const [formValues, setFormValues] = useState({});
+    const [localFormValues, setLocalFormValues] = useState({}); // Local state for form inputs
 
     function handleInputChange (id, value) {
-        setFormValues(
+        setLocalFormValues(
             {
-                ...formValues,
+                ...localFormValues,
                 [id]: value,
             }
         )
@@ -29,7 +29,8 @@ export function General ({text, children}) {
     function formSubmit (e) {
         e.preventDefault();
         console.log("form submitted");
-        console.log("formvalues", formValues)
+        onFormSubmit(text, localFormValues);
+        console.log("formvalues", localFormValues)
         toggleDialog();
     }
 
@@ -44,6 +45,20 @@ export function General ({text, children}) {
                  />
 
             </h2>
+            {text !== "General Info" && formValues[text] && formValues[text].map((item) => (
+                <div 
+                    className="viewbar" key={item.key}>
+                    <div>{item.school || item.company}</div>
+                    <div className="button-container">
+                        <Button text="edit"></Button>
+                        <Button>
+                            <img src="./src/delete.svg" alt="trash icon" />
+                        </Button>
+                    </div>
+                </div>
+
+            ))}
+
             {dialogOpen && <div className={`dialog ${dialogOpen ? `open`: `closed`}`}>
                 <form action="" method="" onSubmit={(e) => formSubmit(e)}>
                 {React.Children.map(children, child => 
@@ -51,8 +66,8 @@ export function General ({text, children}) {
                         ...child.props,       // Spread the existing props of the child
                         checked,              // Add or override with new props
                         toggleCheckBox,
-                        handleInputChange,
-                        inputValue: formValues[child.props.inputid] || "",
+                        onFormSubmit: handleInputChange,
+                        inputValue: localFormValues[child.props.inputid] || "",
                     })
                 )} 
                 </form>

@@ -1,10 +1,10 @@
 import { useState } from "react";
 
 
-export function Formdiv ({forinput, text, type, inputid, classid, checked, toggleCheckBox, handleInputChange, inputValue}) {
+export function Formdiv ({forinput, text, type, inputid, classid, checked, toggleCheckBox, onFormSubmit, inputValue}) {
 
     function inputChange (e) {
-        handleInputChange(inputid, e.target.value);
+        onFormSubmit(inputid, e.target.value);
 
     }
 

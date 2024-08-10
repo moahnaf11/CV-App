@@ -3,7 +3,44 @@ import App from "./App";
 import { CVDisplay } from "./Cvdisplay";
 
 export function ParentComponent () {
+    const [formValues, setFormValues] = useState({
+        "General Info": {},
+        "Education": [],
+        "Experience": []
+    });
 
+    function updateFormValues(formName, value) {
+        setFormValues(prevValues => {
+            const isArraySection = formName === 'Education' || formName === 'Experience';
+            let updateValues;
+            let keyName;
+            if (formName === 'Education' || formName === 'Experience') {
+                // Generate a key based on schoolName or companyName
+                keyName = formName === 'Education' ? value.school : value.company;
+            }
+            if (isArraySection) {
+                updateValues = {
+                    ...prevValues,
+                    [formName]: [
+                        ...(prevValues[formName] || []), 
+                    {
+                        ...value,
+                        key: keyName // Add the key as a property of the object
+                    }],
+                };
+                
+            }   else {
+                updateValues = {
+                    ...prevValues,
+                    [formName]: value,
+                };
+            }
+            console.log("form", updateValues);
+            return updateValues;
+
+        });
+
+    }
 
     return (
         <>
@@ -17,11 +54,11 @@ export function ParentComponent () {
 
             <main>
                 <section className="forms">
-                    <App/>
+                    <App updateFormValues={updateFormValues} formValues={formValues}/>
                 </section>
 
                 <section className="cv">
-                    <CVDisplay/>
+                    <CVDisplay formValues={formValues}/>
                 </section>
             </main>
         </>

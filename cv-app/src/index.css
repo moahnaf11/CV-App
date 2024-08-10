@@ -77,6 +77,20 @@ section.forms {
   row-gap: 20px;
 }
 
+.generaldiv > div.viewbar {
+  display: flex;
+  justify-content: space-between;
+  min-height: 30px;
+  background-color: #3b82f6;
+  border-radius: 15px;
+  padding-left: 10px;
+  gap: 10px;
+  border: 2px solid black;
+  box-sizing: border-box;
+  font-family: 'intro_rust_gbase_2_line', sans-serif;
+  margin: 10px 0;
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -134,6 +148,7 @@ div.check > input {
 button {
   display: inline-block;
   padding: 8px;
+  box-sizing: border-box;
   border-radius: 15px;
   border: none;
   width: 200px;
@@ -144,7 +159,30 @@ button {
 
 button[type="button"] {
   background-color: #f97316;
+  width: 60px;
+  height: 100%;
   
+}
+
+button > img {
+  margin: 0 auto;
+  height: 20px;
+  width: 20px;
+}
+
+div.viewbar > .button-container {
+  display: flex;
+  gap: 10px;
+}
+
+div.viewbar > :first-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-container > :nth-child(2) {
+  background-color: #dc2626;
 }
 
 button[type="submit"] {
@@ -167,7 +205,7 @@ h2 {
   text-align: center;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   header {
     flex-direction: column;
   }
@@ -180,6 +218,13 @@ h2 {
     font-size: 1rem;
     flex-direction: column;
     align-items: center;
+  }
+
+  .viewbar {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 10px;
+    gap: 10px;
   }
   
 }
