@@ -4,10 +4,10 @@ import { General } from './General'
 import { Formdiv } from './Formdiv'
 import { Button } from './Button'
 
-function App({updateFormValues, formValues}) {
+function App({updateFormValues, formValues, setCurrentKeyAction, currentKeyAction}) {
 
-  function handleFormSubmit(id, value) {
-    updateFormValues(id, value);
+  function handleFormSubmit(id, value, currentKeyAction) {
+    updateFormValues(id, value, currentKeyAction);
   }
   
 
@@ -17,6 +17,8 @@ function App({updateFormValues, formValues}) {
         text="General Info"
         onFormSubmit={handleFormSubmit}
         formValues={formValues}
+        setCurrentKeyAction={setCurrentKeyAction}
+        currentKeyAction={currentKeyAction}
         
       >
         <Formdiv
@@ -72,6 +74,8 @@ function App({updateFormValues, formValues}) {
         text= "Education" 
         onFormSubmit={handleFormSubmit}
         formValues={formValues}
+        setCurrentKeyAction={setCurrentKeyAction}
+        currentKeyAction={currentKeyAction}
       >
         <Formdiv
           forinput="school"
@@ -137,6 +141,8 @@ function App({updateFormValues, formValues}) {
         text= "Experience"
         onFormSubmit={handleFormSubmit}
         formValues={formValues}
+        setCurrentKeyAction={setCurrentKeyAction}
+        currentKeyAction={currentKeyAction}
       >
         <Formdiv
           forinput="company"

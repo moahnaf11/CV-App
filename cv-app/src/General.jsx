@@ -1,23 +1,18 @@
-import { Children, useState } from 'react'
+import { act, Children, useState } from 'react'
 import downIcon from "./down.svg"
 import React from 'react';
 
 
-export function General ({text, children, onFormSubmit, formValues}) {
+export function General ({text, children, onFormSubmit, formValues, setCurrentKeyAction, currentKeyAction}) {
     const [dialogOpen, setDialogOpen] = useState(false);
     const [checked, setChecked] = useState(false);
     const [localFormValues, setLocalFormValues] = useState({}); // Local state for form inputs
 
     function handleInputChange (id, value) {
         setLocalFormValues((prevValues) => {
-            let newKey;
-            if (id === "school" || id === "company" ) {
-                newKey = value;
-            }
             return {
-                ...localFormValues,
+                ...prevValues,
                 [id]: value,
-                key: newKey
             }
 
         })
@@ -36,7 +31,7 @@ export function General ({text, children, onFormSubmit, formValues}) {
     function formSubmit (e) {
         e.preventDefault();
         console.log("form submitted");
-        onFormSubmit(text, localFormValues);
+        onFormSubmit(text, localFormValues, currentKeyAction);
         console.log("formvalues", localFormValues)
         toggleDialog();
     }
@@ -46,12 +41,20 @@ export function General ({text, children, onFormSubmit, formValues}) {
     function handleButtonClick (e, itemKey) {
         let target = e.target;
         if (target.className === "del") {
-            const updatedItems = formValues[text].filter((item) => item.key !== itemKey)
-            onFormSubmit(text, updatedItems)
+            setCurrentKeyAction((prevState) => {
+                const newKeyAction = { key: itemKey, action: "del" };
+                onFormSubmit(text, null, newKeyAction)
+                return newKeyAction;
+            });
         }   else if (target.className === "edit") {
-            const itemToEdit = formValues[text].find(item => item.key === itemKey);
-            setLocalFormValues(itemToEdit);
-            toggleDialog();
+            
+            setCurrentKeyAction((prevState) => {
+                const newKeyAction = { key: itemKey, action: "edit" };
+                const itemToEdit = formValues[text].find(item => item.key === itemKey);
+                setLocalFormValues(itemToEdit);
+                toggleDialog();
+                return newKeyAction;
+            });
 
         }
         
