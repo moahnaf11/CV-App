@@ -125,13 +125,18 @@ label {
 
 
 
-input {
+input, textarea {
   box-sizing: border-box;
   display: inline-block;
   width: 100%;
   padding: 0 10px;
   border-radius: 10px;
   min-height: 30px;
+}
+
+textarea {
+  min-height: 80px;
+  padding: 10px;
 }
 
 div.check {
@@ -231,7 +236,8 @@ div.info {
   font-family: 'intro_rust_gbase_2_line', sans-serif;
   border-top: 2px solid black;
   border-bottom: 2px solid black;
-  margin-top: 20px;
+  margin: 20px 0;
+  gap: 30px;
 }
 
 
@@ -260,7 +266,7 @@ div.namelocation {
   box-sizing: border-box;
 }
 
-div.school {
+div.school, .experience2 {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -268,7 +274,7 @@ div.school {
   margin-bottom: 20px;
 }
 
-div.schoolnamedate {
+div.schoolnamedate, .companydate {
   display: flex;
   justify-content: space-between;
   gap: 15px;
@@ -279,6 +285,32 @@ div.date-wrapper {
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+.responsibility, .description {
+  font-family: 'source_sans_proextralight', sans-serif;
+  font-weight: 900;
+  font-size: 1rem;
+}
+
+h3 {
+  font-family: 'intro_rust_gbase_2_line', sans-serif;
+  font-size: 1rem;
+}
+
+.education h2, .experience h2 {
+  border-top: 1px solid black;
+}
+
+div.arrow {
+  display: flex;
+}
+
+.viewbar {
+  flex-direction: column;
+  align-items: center;
+  padding: 0 10px;
+  gap: 10px;
 }
 
 @media (max-width: 600px) {

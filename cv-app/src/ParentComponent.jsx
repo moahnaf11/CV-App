@@ -26,11 +26,7 @@ export function ParentComponent () {
                 console.log("del", updateValues)
                 return updateValues;
             }   else if (currentKeyAction.action === "edit") {
-                // const itemToEdit = prevValues[formName].find(item => item.key === currentKeyAction.key);
-                // updateValues = {
-                //     ...prevValues,
-                //     [formName]: itemToEdit
-                // }
+
                 updateValues = {
                     ...prevValues,
                     [formName]: prevValues[formName].map(item => 
@@ -50,7 +46,7 @@ export function ParentComponent () {
                     updateValues = {
                         ...prevValues,
                         [formName]: prevValues[formName].map((item, index) => 
-                            index === existingItemIndex ? { ...value, key: item.key } : item
+                            index === existingItemIndex ? { ...value, key: item.key } : item 
                         )
                     };
                     
@@ -61,7 +57,7 @@ export function ParentComponent () {
                             ...(prevValues[formName] || []), 
                         {
                             ...value,
-                            key: keyName // Add the key as a property of the object
+                            key: keyName
                         }],
                     };
 

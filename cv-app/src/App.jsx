@@ -5,11 +5,25 @@ import { Formdiv } from './Formdiv'
 import { Button } from './Button'
 
 function App({updateFormValues, formValues, setCurrentKeyAction, currentKeyAction}) {
+  // responsibility array
+  const [responsibilities, setResponsibilities] = useState([""]);
 
   function handleFormSubmit(id, value, currentKeyAction) {
-    updateFormValues(id, value, currentKeyAction);
+    updateFormValues(id, { ...value, responsibilities }, currentKeyAction);
   }
   
+  // responsibilty functions
+
+  function addResponsibilityField() {
+    setResponsibilities([...responsibilities, ""]);
+  }
+
+  function handleResponsibilityChange(index, value) {
+    const updatedResponsibilities = responsibilities.map((resp, i) =>
+      i === index ? value : resp
+    );
+    setResponsibilities(updatedResponsibilities);
+  }
 
   return (
     <>
@@ -101,6 +115,15 @@ function App({updateFormValues, formValues, setCurrentKeyAction, currentKeyActio
           type="text"
           inputid="title"
           placeholder="A levels"
+        >
+        </Formdiv>
+
+        <Formdiv
+          forinput="description"
+          text="Course Description"
+          type="text"
+          inputid="description"
+          placeholder="course details"
         >
         </Formdiv>
 

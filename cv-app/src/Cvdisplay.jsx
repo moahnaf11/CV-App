@@ -37,12 +37,13 @@ export function CVDisplay ({formValues}) {
                         <div className="schoolnamedate">
                             <div className="schoolname">{item.school}</div>
                             <div className="date-wrapper">
-                                <div className="start">{item.date}</div>
-                                <div className="arrow">---</div>
-                                <div className="end">{item.enddate ? item.enddate : "current"}</div>
+                                <div className="start">{new Date(item.date).toLocaleString("en-GB", {day: "2-digit", month: "2-digit", year: "numeric"})}</div>
+                                <div className="arrow">-</div>
+                                <div className="end">{item.enddate ?  new Date(item.enddate).toLocaleString("en-GB", {day: "2-digit", month: "2-digit", year: "numeric"}): "current"}</div>
                             </div>
                         </div>
-                        <div className="title">{item.title}</div>
+                        <h3 className="title">{item.title}</h3>
+                        <div className="description">{item.description}</div>
                     </div>
                 ))}
             </div>}
@@ -50,16 +51,17 @@ export function CVDisplay ({formValues}) {
             {experience && <div className="experience">
                 <h2>Experience</h2>
                 {formValues["Experience"].map((item) => (
-                    <div className="experience" key={item.key}>
+                    <div className="experience2" key={item.key}>
                         <div className="companydate">
-                            <div className="schoolname">{item.school}</div>
+                            <div className="companyname">{item.company}</div>
                             <div className="date-wrapper">
-                                <div className="start">{item.date}</div>
-                                <div className="arrow">---</div>
-                                <div className="end">{item.enddate ? item.enddate : "current"}</div>
+                                <div className="start">{new Date(item.start).toLocaleString("en-GB", {day: "2-digit", month: "2-digit", year: "numeric"})}</div>
+                                <div className="arrow">-</div>
+                                <div className="end">{item.end ? new Date(item.end).toLocaleString("en-GB", {day: "2-digit", month: "2-digit", year: "numeric"}) : "current"}</div>
                             </div>
                         </div>
-                        <div className="title">{item.title}</div>
+                        <h3 className="position">{item.position}</h3>
+                        <div className="responsibility">{item.responsibility}</div>
                     </div>
                 ))}
 

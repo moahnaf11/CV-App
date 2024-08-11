@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-
 export function Formdiv ({forinput, text, type, inputid, classid, checked, toggleCheckBox, onFormSubmit, inputValue}) {
 
     function inputChange (e) {
@@ -25,6 +24,15 @@ export function Formdiv ({forinput, text, type, inputid, classid, checked, toggl
             </div>
         )
 
+    }
+
+    if (inputid === "responsibility" || inputid === "description") {
+        return (
+            <div className={classid}>
+                <label htmlFor={forinput}>{text}</label>
+                <textarea id={inputid} onChange={inputChange} value={inputValue} required></textarea>
+            </div>
+        );
     }
 
 
