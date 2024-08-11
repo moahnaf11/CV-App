@@ -4,7 +4,7 @@ import { CVDisplay } from "./Cvdisplay";
 
 export function ParentComponent () {
     const [formValues, setFormValues] = useState({
-        "General Info": {},
+        "General Info": [],
         "Education": [],
         "Experience": []
     });

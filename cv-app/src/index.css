@@ -205,6 +205,82 @@ h2 {
   text-align: center;
 }
 
+.cv > h1 {
+  text-align: center;
+  font-family: "intro_rust_gbase_2_line", sans-serif;
+}
+
+.cv h2 {
+  color: black;
+  text-align: center;
+  display: block;
+}
+
+div.info a {
+  color: black;
+  cursor: pointer;
+  text-decoration: underline;
+  display: flex;
+  font-family: 'intro_rust_gbase_2_line', sans-serif;
+}
+
+div.info {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px;
+  font-family: 'intro_rust_gbase_2_line', sans-serif;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  margin-top: 20px;
+}
+
+
+
+div.mail, .phone {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+div.mailphonelinkedin {
+  padding-left: 5px;
+  border-left: 2px solid black;
+}
+
+div.mailphonelinkedin, .namelocation{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+div.namelocation {
+  justify-content: space-between;
+  padding: 10px 0;
+  box-sizing: border-box;
+}
+
+div.school {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 30px;
+  margin-bottom: 20px;
+}
+
+div.schoolnamedate {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  font-family: 'intro_rust_gbase_2_line', sans-serif;
+}
+
+div.date-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
 @media (max-width: 600px) {
   header {
     flex-direction: column;
@@ -232,6 +308,15 @@ h2 {
 @media (hover: hover) {
   button:hover {
     box-shadow: 0px 0px 5px 3px #0f172a;
+  }
+
+  div.info a img:hover {
+    box-shadow: 0px 0px 5px 3px black;
+
+  }
+
+  div.info a:hover {
+    color: #65a30d;
   }
 }
 

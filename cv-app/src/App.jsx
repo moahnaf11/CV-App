@@ -57,6 +57,15 @@ function App({updateFormValues, formValues, setCurrentKeyAction, currentKeyActio
         >
         </Formdiv>
 
+        <Formdiv
+          forinput="linkedin"
+          text="LinkedIn"
+          type="url"
+          inputid="linkedin"
+          placeholder="linkedin url"
+        >
+        </Formdiv>
+
         <Button
           type="submit"
           text="Save"

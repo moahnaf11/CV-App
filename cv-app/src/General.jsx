@@ -39,7 +39,7 @@ export function General ({text, children, onFormSubmit, formValues, setCurrentKe
     // edit/ delete button click function
 
     function handleButtonClick (e, itemKey) {
-        let target = e.target;
+        let target = e.target.closest("button");
         if (target.className === "del") {
             setCurrentKeyAction((prevState) => {
                 const newKeyAction = { key: itemKey, action: "del" };
@@ -57,11 +57,11 @@ export function General ({text, children, onFormSubmit, formValues, setCurrentKe
             });
 
         }
-        
+    }
 
-       
-
-
+    function handleReset() {
+        setLocalFormValues({});
+        setChecked(false);
     }
 
 
@@ -90,7 +90,7 @@ export function General ({text, children, onFormSubmit, formValues, setCurrentKe
             ))}
 
             {dialogOpen && <div className={`dialog ${dialogOpen ? `open`: `closed`}`}>
-                <form action="" method="" onSubmit={(e) => formSubmit(e)}>
+                <form action="" method="" onSubmit={(e) => formSubmit(e)} onReset={handleReset}>
                 {React.Children.map(children, child => 
                     React.cloneElement(child, {
                         ...child.props,
