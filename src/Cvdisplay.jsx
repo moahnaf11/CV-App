@@ -1,10 +1,10 @@
 import { useState } from "react";
 import React, { useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
-import location from "./src/location.svg";
-import gmail from "./src/gmail.svg";
-import phone from "./src/phone.svg";
-import linkedIN from "./src/linkedin.svg";
+import location from "./location.svg";
+import gmail from "./gmail.svg";
+import phone from "./phone.svg";
+import linkedIN from "./linkedin.svg";
 
 export function CVDisplay ({formValues}) {
     const generalinfo = Object.keys(formValues["General Info"]).length > 0;

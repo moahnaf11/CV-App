@@ -1,7 +1,7 @@
 import { useState } from "react";
 import App from "./App";
 import { CVDisplay } from "./Cvdisplay";
-import github from "./src/github.svg";
+import github from "./github.svg";
 
 export function ParentComponent () {
     const [formValues, setFormValues] = useState({
