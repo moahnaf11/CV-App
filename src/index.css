@@ -328,16 +328,22 @@ div.arrow {
 }
 
 @media (max-width: 600px) {
+  main {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: min-content auto;
+  }
+
   header {
     flex-direction: column;
   }
 
   header > h1 {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
   }
 
   h2 {
-    font-size: 1rem;
+    font-size: 1.3rem;
     flex-direction: column;
     align-items: center;
   }
