@@ -11,7 +11,7 @@ export function Formdiv ({forinput, text, type, inputid, classid, checked, toggl
         return (
             <div className={classid}>
                 <label htmlFor={forinput}>{text}</label>
-                <input onChange={toggleCheckBox} type={type} id={inputid} />
+                <input onChange={toggleCheckBox} type={type} id={inputid} checked={checked} />
             </div>
         )   
     }
@@ -20,7 +20,7 @@ export function Formdiv ({forinput, text, type, inputid, classid, checked, toggl
         return (
             <div className={classid}>
                 <label htmlFor={forinput}>{text}</label>
-                <input type={type} id={inputid} disabled={checked} />
+                <input type={type} id={inputid} disabled={checked} value={inputValue} />
             </div>
         )
 

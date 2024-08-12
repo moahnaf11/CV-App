@@ -25,14 +25,29 @@ export function General ({text, children, onFormSubmit, formValues, setCurrentKe
 
 
     function toggleDialog () {
+        if (dialogOpen) {
+            // If the dialog was open and is now being closed, reset currentKeyAction
+            setCurrentKeyAction({ key: null, action: null });
+        }
         setDialogOpen(!dialogOpen);
-        setCurrentKeyAction({key: null, action: null})
+        
     }
 
     function formSubmit (e) {
         e.preventDefault();
+
+        const updatedFormValues = { ...localFormValues };
+
+        if (checked) {
+            if (text === "Experience") {
+                delete updatedFormValues.end;
+            } else if (text === "Education") {
+                delete updatedFormValues.enddate;
+            }
+        }
+
         console.log("form submitted");
-        onFormSubmit(text, localFormValues, currentKeyAction);
+        onFormSubmit(text, updatedFormValues, currentKeyAction);
         console.log("formvalues", localFormValues)
         toggleDialog();
     }
@@ -48,12 +63,14 @@ export function General ({text, children, onFormSubmit, formValues, setCurrentKe
                 return newKeyAction;
             });
         }   else if (target.className === "edit") {
-            
             setCurrentKeyAction((prevState) => {
                 const newKeyAction = { key: itemKey, action: "edit" };
                 const itemToEdit = formValues[text].find(item => item.key === itemKey);
+                // setChecked(itemToEdit.checked || false);
                 setLocalFormValues(itemToEdit);
-                toggleDialog();
+                if (!dialogOpen) {
+                    toggleDialog();
+                }
                 return newKeyAction;
             });
 
