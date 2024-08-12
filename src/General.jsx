@@ -1,6 +1,7 @@
 import { act, Children, useState } from 'react'
 import downIcon from "./down.svg"
 import React from 'react';
+import Delete from "./src/delete.svg";
 
 
 export function General ({text, children, onFormSubmit, formValues, setCurrentKeyAction, currentKeyAction}) {
@@ -100,7 +101,7 @@ export function General ({text, children, onFormSubmit, formValues, setCurrentKe
                     <div className="button-container">
                         <button className="edit" type='button'>Edit</button>
                         <button className="del" type='button'>
-                            <img src="./src/delete.svg" alt="trash icon" />
+                            <img src={Delete} alt="trash icon" />
                         </button>
                     </div>
                 </div>

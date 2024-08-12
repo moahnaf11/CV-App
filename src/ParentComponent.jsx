@@ -1,6 +1,7 @@
 import { useState } from "react";
 import App from "./App";
 import { CVDisplay } from "./Cvdisplay";
+import github from "./src/github.svg";
 
 export function ParentComponent () {
     const [formValues, setFormValues] = useState({
@@ -83,7 +84,7 @@ export function ParentComponent () {
                 <h1>CV generator</h1>
                 <a href="https://github.com/moahnaf11/CV-App">
                     Follow me on github
-                    <img src="./src/github.svg" alt="github icon" />
+                    <img src={github} alt="github icon" />
                 </a>
             </header>
 

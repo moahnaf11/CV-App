@@ -1,6 +1,10 @@
 import { useState } from "react";
 import React, { useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
+import location from "./src/location.svg";
+import gmail from "./src/gmail.svg";
+import phone from "./src/phone.svg";
+import linkedIN from "./src/linkedin.svg";
 
 export function CVDisplay ({formValues}) {
     const generalinfo = Object.keys(formValues["General Info"]).length > 0;
@@ -158,19 +162,19 @@ export function CVDisplay ({formValues}) {
                         <div className="namelocation">
                             <div className="name">{formValues["General Info"].name}</div>
                             <div className="address">{formValues["General Info"].address}
-                                <img src="./src/location.svg" alt="location icon" />
+                                <img src={location} alt="location icon" />
                             </div>
                         </div>
                         <div className="mailphonelinkedin">
                             <div className="mail">{formValues["General Info"].mail}
-                                <img src="./src/gmail.svg" alt="gmail icon" />
+                                <img src={gmail} alt="gmail icon" />
                             </div>
                             <div className="phone">{formValues["General Info"].phone}
-                                <img src="./src/phone.svg" alt="phone icon" />
+                                <img src={phone} alt="phone icon" />
                             </div>
                             <div className="linkedin">
                                 <a href={formValues["General Info"].linkedin} target="_blank">My LinkedIn
-                                    <img src="./src/linkedin.svg" alt="linkedin icon" />
+                                    <img src={linkedIN} alt="linkedin icon" />
                                 </a>
                             </div>
                         </div>
