@@ -1,7 +1,8 @@
 import { act, Children, useState } from 'react'
 import downIcon from "./down.svg"
 import React from 'react';
-import Delete from "./src/delete.svg";
+import Delete from "./delete.svg";
+// fix file paths
 
 
 export function General ({text, children, onFormSubmit, formValues, setCurrentKeyAction, currentKeyAction}) {
