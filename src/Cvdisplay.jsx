@@ -34,117 +34,173 @@ export function CVDisplay ({formValues}) {
                 font-style: normal;
             
             }
-  
-            .cv h1 {
+
+            @media print {
+                .cv h1 {
                 text-align: center;
                 font-family: "intro_rust_gbase_2_line", sans-serif;
+                }
+            
+                .cv h2 {
+                    color: black;
+                    text-align: center;
+                    display: block;
+                }
+    
+                div.info a {
+                    color: black;
+                    cursor: pointer;
+                    text-decoration: underline;
+                    display: flex;
+                    font-family: 'intro_rust_gbase_2_line', sans-serif;
+                }
+                
+                div.info {
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 0 30px;
+                    font-family: 'intro_rust_gbase_2_line', sans-serif;
+                    border-top: 2px solid black;
+                    border-bottom: 2px solid black;
+                    margin: 20px 0;
+                    gap: 30px;
+                }
+                
+                
+                
+                div.mail, .phone {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                }
+                
+                div.mailphonelinkedin {
+                    padding-left: 5px;
+                    border-left: 2px solid black;
+                }
+                
+                div.mailphonelinkedin, .namelocation{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                
+                }
+                
+                div.namelocation {
+                    justify-content: space-between;
+                    padding: 10px 0;
+                    box-sizing: border-box;
+                    font-weight: 700;
+                    gap: 20px;
+                }
+                
+                div.school, .experience2 {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    padding: 0 30px;
+                    margin-bottom: 20px;
+                }
+                
+                div.schoolnamedate, .companydate {
+                    display: flex;
+                    justify-content: space-between;
+                    gap: 15px;
+                    font-family: 'intro_rust_gbase_2_line', sans-serif;
+                }
+                
+                div.date-wrapper {
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                }
+                
+                .responsibility, .description {
+                    font-family: 'source_sans_proextralight', sans-serif;
+                    font-weight: 900;
+                    font-size: 1rem;
+                }
+                
+                h3 {
+                    font-family: 'intro_rust_gbase_2_line', sans-serif;
+                    font-size: 1rem;
+                }
+                
+                .education h2, .experience h2 {
+                    border-top: 1px solid black;
+                }
+                
+                div.arrow {
+                    display: flex;
+                }
+                
+                .viewbar {
+                    flex-direction: column;
+                    align-items: center;
+                    padding: 0 10px;
+                    gap: 10px;
+                }
+                
+                .address {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                }
+
+                
             }
             
-            .cv h2 {
-                color: black;
-                text-align: center;
-                display: block;
+            @media print and (max-width: 600px) {
+                main {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-auto-rows: min-content auto;
+                }
+
+                .mail {
+                    flex-direction: column;
+                }
+
+                .cv button {
+                    margin: 0 auto;
+                }
+
+                div.info {
+                    flex-direction: column;
+                }
+
+                div.mailphonelinkedin {
+                    border: none;
+                }
+
+                div.schoolnamedate, .companydate {
+                    flex-direction: column;
+                }
+
+                header {
+                    flex-direction: column;
+                }
+
+                header > h1 {
+                    font-size: 1.7rem;
+                }
+
+                h2 {
+                    font-size: 1.3rem;
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .viewbar {
+                    flex-direction: column;
+                    align-items: center;
+                    padding: 0 10px;
+                    gap: 10px;
+                }
+            
             }
   
-            div.info a {
-                color: black;
-                cursor: pointer;
-                text-decoration: underline;
-                display: flex;
-                font-family: 'intro_rust_gbase_2_line', sans-serif;
-            }
             
-            div.info {
-                display: flex;
-                justify-content: space-between;
-                padding: 0 30px;
-                font-family: 'intro_rust_gbase_2_line', sans-serif;
-                border-top: 2px solid black;
-                border-bottom: 2px solid black;
-                margin: 20px 0;
-                gap: 30px;
-            }
-            
-            
-            
-            div.mail, .phone {
-                display: flex;
-                align-items: center;
-                gap: 10px;
-            }
-            
-            div.mailphonelinkedin {
-                padding-left: 5px;
-                border-left: 2px solid black;
-            }
-            
-            div.mailphonelinkedin, .namelocation{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            
-            }
-            
-            div.namelocation {
-                justify-content: space-between;
-                padding: 10px 0;
-                box-sizing: border-box;
-                font-weight: 700;
-                gap: 20px;
-            }
-            
-            div.school, .experience2 {
-                display: flex;
-                flex-direction: column;
-                gap: 10px;
-                padding: 0 30px;
-                margin-bottom: 20px;
-            }
-            
-            div.schoolnamedate, .companydate {
-                display: flex;
-                justify-content: space-between;
-                gap: 15px;
-                font-family: 'intro_rust_gbase_2_line', sans-serif;
-            }
-            
-            div.date-wrapper {
-                display: flex;
-                align-items: center;
-                gap: 5px;
-            }
-            
-            .responsibility, .description {
-                font-family: 'source_sans_proextralight', sans-serif;
-                font-weight: 900;
-                font-size: 1rem;
-            }
-            
-            h3 {
-                font-family: 'intro_rust_gbase_2_line', sans-serif;
-                font-size: 1rem;
-            }
-            
-            .education h2, .experience h2 {
-                border-top: 1px solid black;
-            }
-            
-            div.arrow {
-                display: flex;
-            }
-            
-            .viewbar {
-                flex-direction: column;
-                align-items: center;
-                padding: 0 10px;
-                gap: 10px;
-            }
-            
-            .address {
-                display: flex;
-                align-items: center;
-                gap: 10px;
-            }
         `
     });
 
