@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function Formdiv ({forinput, text, type, inputid, classid, checked, toggleCheckBox, onFormSubmit, inputValue}) {
+export function Formdiv ({forinput, text, type, inputid, classid, checked, toggleCheckBox, onFormSubmit, inputValue, placeholder}) {
 
     function inputChange (e) {
         onFormSubmit(inputid, e.target.value);
@@ -30,7 +30,7 @@ export function Formdiv ({forinput, text, type, inputid, classid, checked, toggl
         return (
             <div className={classid}>
                 <label htmlFor={forinput}>{text}</label>
-                <textarea id={inputid} onChange={inputChange} value={inputValue} required></textarea>
+                <textarea id={inputid} onChange={inputChange} value={inputValue} required placeholder={placeholder}></textarea>
             </div>
         );
     }
@@ -39,7 +39,7 @@ export function Formdiv ({forinput, text, type, inputid, classid, checked, toggl
     return (
         <div className={classid}>
             <label htmlFor={forinput}>{text}</label>
-            <input type={type} id={inputid} onChange={inputChange} value={inputValue} required/>
+            <input type={type} id={inputid} onChange={inputChange} value={inputValue} required placeholder={placeholder}/>
         </div>
     )
 }

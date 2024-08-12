@@ -26,6 +26,7 @@ export function General ({text, children, onFormSubmit, formValues, setCurrentKe
 
     function toggleDialog () {
         setDialogOpen(!dialogOpen);
+        setCurrentKeyAction({key: null, action: null})
     }
 
     function formSubmit (e) {
